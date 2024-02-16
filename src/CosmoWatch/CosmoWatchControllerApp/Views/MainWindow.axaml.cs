@@ -7,6 +7,7 @@ namespace CosmoWatchControllerApp.Views
         public MainWindow()
         {
             InitializeComponent();
+            CanResize = false;
         }
     }
 }

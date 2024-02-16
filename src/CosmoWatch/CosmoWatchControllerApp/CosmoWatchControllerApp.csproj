@@ -13,6 +13,12 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\light-bulb.png" />
+    <None Remove="Assets\loading.png" />
+    <None Remove="Assets\wifi.png" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.6" />

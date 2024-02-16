@@ -3,18 +3,97 @@
         xmlns:vm="using:CosmoWatchControllerApp.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="927" d:DesignHeight="638"
         x:Class="CosmoWatchControllerApp.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="CosmoWatchControllerApp">
+        Title="CosmoWatchControllerApp"
+		Background="#192734"
+		Width="927"
+		Height="638"
+		WindowStartupLocation="CenterScreen">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+	<StackPanel>
+		<Panel Margin="19 20">
+			<Label FontSize="24" Foreground="#535C91" FontWeight="Bold">CosmoWatch</Label>
+		</Panel>
+	
+		<!-- Main Content Grid -->
+		<Grid Margin="125 0" Background="Transparent" RowDefinitions="Auto 17 Auto">
+			<!-- Summary and Controllers -->
+			<Grid Grid.Row="0" Background="Transparent" ColumnDefinitions="Auto 17 Auto">
+				<Rectangle Grid.Column="0" Fill="#2B3E4E" 
+						   Width="441" Height="291"
+						   RadiusX="10" RadiusY="10"/>
+				<StackPanel Grid.Column="0" Margin="0 0 0 0">
+					<Label Margin="13 11 0 11" FontSize="18" FontWeight="SemiBold" Foreground="#A1A3B1">
+						Environment Summary:
+					</Label>
+					
+					<!-- Internet Connection -->
+					<StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+						<Button Background="Transparent">
+							<Image Source="/Assets/wifi.png"/>
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							Connected
+						</Label>
+					</StackPanel>
+					<!-- Temperature Reading -->
+					<StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+						<Button Background="Transparent">
+							<Image Source="/Assets/thermometer.png" Width="26" Height="26" />
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#6B78CC">
+							82°F
+						</Label>
+					</StackPanel>
+					<!-- Oxygen Reading -->
+					<StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+						<Button Background="Transparent">
+							<Image Source="/Assets/oxygen.png" Width="26" Height="26" />
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							96%
+						</Label>
+					</StackPanel>
+					<!-- Co2 Reading -->
+					<StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+						<Button Background="Transparent">
+							<Image Source="/Assets/wifi.png" Width="26" Height="26" />
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							Connected
+						</Label>
+					</StackPanel>
+					
+				</StackPanel>
+				
+				<Grid Grid.Column="2" Background="Transparent" RowDefinitions="Auto 17 Auto">
+					<Rectangle Grid.Row="0" Fill="#2B3E4E" 
+							   Width="219" Height="137"
+							   RadiusX="10" RadiusY="10">
+						
+					</Rectangle>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					<Rectangle Grid.Row="2" Fill="#2B3E4E" 
+							   Width="219" Height="137"
+							   RadiusX="10" RadiusY="10">
 
+					</Rectangle>
+				</Grid>
+			</Grid>
+			
+			<Rectangle Grid.Row="2" Fill="#2B3E4E" Height="200"
+					   RadiusX="10" RadiusY="10">
+
+			</Rectangle>
+		</Grid>
+	</StackPanel>
+
+	
 </Window>
