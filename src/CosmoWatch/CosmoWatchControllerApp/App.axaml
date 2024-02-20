@@ -12,5 +12,6 @@
     <Application.Styles>
         <FluentTheme />
 		<StyleInclude Source="avares://CosmoWatchControllerApp/Icons.axaml" />
+		<StyleInclude Source="avares://CosmoWatchControllerApp/CustomSlider.axaml" />
     </Application.Styles>
 </Application>

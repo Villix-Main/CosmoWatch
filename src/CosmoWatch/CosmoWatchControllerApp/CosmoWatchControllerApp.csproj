@@ -14,8 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Assets\cosmowatchlogo.png" />
+    <None Remove="Assets\cosmowatchlogo.svg" />
     <None Remove="Assets\light-bulb.png" />
     <None Remove="Assets\loading.png" />
+    <None Remove="Assets\oxygen(better).png" />
     <None Remove="Assets\wifi.png" />
   </ItemGroup>
 

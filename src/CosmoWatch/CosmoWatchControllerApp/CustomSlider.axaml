@@ -1,0 +1,53 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+	<Style Selector="Slider /template/ RepeatButton#PART_DecreaseButton">
+		<Setter Property="IsTabStop" Value="false" />
+		<Setter Property="Focusable" Value="false" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RepeatButton">
+					<Border  Background="" Height="8" CornerRadius="3 0 0 3">
+						<Border.Background>
+							<LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,50%">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Offset="0" Color="#6B78CC"/>
+									<GradientStop Offset="1" Color="#8790CC"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</Border.Background>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style Selector="Slider /template/ RepeatButton#PART_IncreaseButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RepeatButton">
+					<Border Background="#A1A3B1" Height="8" CornerRadius="0 3 3 0"/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style Selector="Thumb">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Thumb">
+					<Ellipse Height="18" Width="18" Fill="#6B78CC"></Ellipse>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	
+	
+</Styles>
