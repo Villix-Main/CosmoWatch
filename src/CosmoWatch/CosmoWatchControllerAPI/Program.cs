@@ -25,6 +25,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapHub<SensorHub>("/sensorHub");
+app.MapHub<SensorHub>("/alarmHub");
 
 
 app.Run();

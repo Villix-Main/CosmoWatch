@@ -4,6 +4,15 @@ namespace CosmoWatchControllerAPI.Hubs
 {
     public class SensorHub : Hub
     {
+        public async Task GetAllAvailableSensors()
+        {
+            await Clients.All.SendAsync("ReceiveMessage");
+        }
+        public async Task SendAllAvailableSensors(string sensors)
+        {
+            await Clients.All.SendAsync("ReceiveMessage", sensors);
+        }
+
         public async Task GetSensorReading(string sensorName)
         {
             await Clients.All.SendAsync("ReceiveMessage", sensorName);
