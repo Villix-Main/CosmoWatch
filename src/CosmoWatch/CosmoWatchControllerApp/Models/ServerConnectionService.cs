@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,6 +47,7 @@ namespace CosmoWatchControllerApp.Models
         {
             try
             {
+                var test = mSensorControllerHub.State;
                 await mSensorControllerHub.StartAsync();
                 await mAlarmControllerHub.StartAsync();
                 mIsConnected = true;
@@ -53,6 +55,10 @@ namespace CosmoWatchControllerApp.Models
             catch
             {
                 mIsConnected = false;
+                return new ConnectionResult
+                {
+                    ServerConnected = false
+                };
             }
 
             var result = await mClient.GetAsync("/Sensor/getNames");
@@ -65,6 +71,16 @@ namespace CosmoWatchControllerApp.Models
                 AlarmControllerConnected = mIsConnected,
                 SensorControllerConnected = mIsConnected
             };
+        }
+
+        public bool TestConnection()
+        {
+            bool isConnected;
+
+            var response = mClient.GetAsync("/");
+            isConnected = response.IsCompletedSuccessfully;
+
+            return isConnected;
         }
 
         private void SetSensorNames(string sensors)

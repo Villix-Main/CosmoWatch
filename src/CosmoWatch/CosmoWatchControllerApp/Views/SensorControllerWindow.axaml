@@ -97,7 +97,7 @@
 						<Label Margin="0 11 0 0" FontSize="18"
 							   FontWeight="Bold" Foreground="#A1A3B1"
 							   HorizontalAlignment="Center">
-							Sensor Settings:
+							Controller Settings:
 						</Label>
 
 					</StackPanel>

@@ -39,8 +39,8 @@
 							<Image Source="/Assets/wifi.png" Stretch="None"/>
 						</Button>
 						<Label VerticalAlignment="Center" FontSize="16"
-							   FontWeight="Bold" Foreground="#008170">
-							Connected
+							   FontWeight="Bold" Foreground="{Binding ConnectionStatusCol}"
+							   Content="{Binding ConnectionStatus}">
 						</Label>
 					</StackPanel>
 					<!-- Temperature Reading -->
@@ -49,8 +49,9 @@
 							<Image Source="/Assets/thermometer.png" Stretch="None"/>
 						</Button>
 						<Label VerticalAlignment="Center" FontSize="16"
-							   FontWeight="Bold" Foreground="#6B78CC">
-							82°F
+							   FontWeight="Bold" 
+							   Foreground="{Binding TemperatureSeverityCol}" 
+							   Content="{Binding TemperatureReading}">
 						</Label>
 					</StackPanel>
 					<!-- Oxygen Reading -->
@@ -59,8 +60,8 @@
 							<Image Source="/Assets/oxygen(better).png" Stretch="None"/>
 						</Button>
 						<Label VerticalAlignment="Center" FontSize="16"
-							   FontWeight="Bold" Foreground="#008170" 
-							   Content="{Binding Number}">
+							   FontWeight="Bold" Foreground="{Binding OxygenSeverityCol}" 
+							   Content="{Binding OxygenReading}">
 						</Label>
 					</StackPanel>
 					<!-- Co2 Reading -->
@@ -69,8 +70,9 @@
 							<Image Source="/Assets/co2(green).png" Stretch="None" />
 						</Button>
 						<Label VerticalAlignment="Center" FontSize="16"
-							   FontWeight="Bold" Foreground="#008170">
-							400
+							   FontWeight="Bold" 
+							   Foreground="{Binding CarbonDioxideSeverityCol}"
+							   Content="{Binding CarbonDioxideReading}">
 						</Label>
 						<Label VerticalAlignment="Center" Margin="-2 5 0 0" FontSize="10"
 							   FontWeight="Bold" Foreground="#6B78CC">
@@ -90,8 +92,9 @@
 						
 					</Image>
 					<Label HorizontalAlignment="Center" Margin="3 -65 0 0"
-						   FontSize="19" FontWeight="SemiBold" Foreground="#BEC1D5">
-						95%
+						   FontSize="19" FontWeight="SemiBold" Foreground="#BEC1D5"
+						   Content="{Binding StatusPercentage}">
+						
 					</Label>
 					<Label Margin="0 10 0 0" FontSize="17" 
 						   FontWeight="Bold" Foreground="#008170"
@@ -163,6 +166,7 @@
 				</Grid>
 			</Grid>
 			
+			<!-- Quick Controls -->
 			<Rectangle Grid.Row="2" Fill="#2B3E4E" Height="200"
 					   RadiusX="10" RadiusY="10">
 			</Rectangle>
@@ -177,6 +181,7 @@
 				</Rectangle>
 
 				<StackPanel Orientation="Horizontal">
+					<!-- Temperature Control -->
 					<StackPanel>
 						<StackPanel Orientation="Horizontal" Margin="5 20 0 0">
 							<Image Source="/Assets/thermometer.png" />
@@ -184,7 +189,8 @@
 							<StackPanel Width="115">
 								<Label HorizontalAlignment="Center"
 										FontSize="18" FontWeight="Bold"
-									Foreground="#BEC1D5">82°F</Label>
+										Foreground="#BEC1D5"
+										Content="{Binding TemperatureControl}"></Label>
 								<Label HorizontalAlignment="Center"
 										FontSize="11" FontWeight="SemiBold"
 										Foreground="#A1A3B1">Temperature</Label>
@@ -193,9 +199,11 @@
 
 
 						<Slider Width="170" HorizontalAlignment="Left"
-								Margin="17 0 0 0" Value="50" Background="Black"></Slider>
+								Margin="17 0 0 0" Value="50" 
+								Background="Black"></Slider>
 					</StackPanel>
 
+					<!-- Light Control -->
 					<StackPanel>
 						<StackPanel Orientation="Horizontal" Margin="80 20 0 0">
 							<Image Source="/Assets/light-bulb.png" VerticalAlignment="Top" 
