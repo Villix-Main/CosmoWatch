@@ -15,12 +15,12 @@ namespace CosmoWatchControllerAPI.Hubs
 
         public async Task GetSensorReading(string sensorName)
         {
-            await Clients.All.SendAsync("ReceiveMessage", sensorName);
+            await Clients.All.SendAsync("GetSensorReading", sensorName);
         }
 
         public async Task SendSensorReading(string sensorName, string value)
         {
-            await Clients.All.SendAsync("ReceiveMessage", sensorName, value);
+            await Clients.All.SendAsync("SendSensorReading", sensorName, value);
         }
 
         public async Task ChangeControllerSetting(string settingName, string value)

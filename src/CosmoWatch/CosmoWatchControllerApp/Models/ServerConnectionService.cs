@@ -40,6 +40,8 @@ namespace CosmoWatchControllerApp.Models
 
         public ConnectionResult? CurrentResult { get; set; }
 
+        public HubConnection SensorControllerHub { get =>  mSensorControllerHub; }
+
         public async Task<ConnectionResult> Initialize()
         {
             try

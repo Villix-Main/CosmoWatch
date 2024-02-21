@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmoWatchControllerAPI", "CosmoWatchControllerAPI\CosmoWatchControllerAPI.csproj", "{8F3D30DD-7B7A-4F31-AC25-B7CC390A5631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmoWatchControllerApp", "CosmoWatchControllerApp\CosmoWatchControllerApp.csproj", "{29E5EA47-0059-49EA-A672-075283567B70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmoWatchControllerApp", "CosmoWatchControllerApp\CosmoWatchControllerApp.csproj", "{29E5EA47-0059-49EA-A672-075283567B70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppToControllerTest", "AppToControllerTest\AppToControllerTest.csproj", "{F71B79AA-0152-4A8C-B3A0-C496178FE0F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{29E5EA47-0059-49EA-A672-075283567B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E5EA47-0059-49EA-A672-075283567B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E5EA47-0059-49EA-A672-075283567B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71B79AA-0152-4A8C-B3A0-C496178FE0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71B79AA-0152-4A8C-B3A0-C496178FE0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71B79AA-0152-4A8C-B3A0-C496178FE0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71B79AA-0152-4A8C-B3A0-C496178FE0F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using CosmoWatchControllerApp.Models;
+using Microsoft.AspNetCore.SignalR.Client;
 using ReactiveUI;
 using System.Reactive.Linq;
 using System.Threading;
@@ -42,15 +43,19 @@ namespace CosmoWatchControllerApp.ViewModels
             var test = result?.SensorNames;
 
             timer = new Timer(DoSum, null, 0, 5000);
-
+            mConnectionService.SensorControllerHub.On<string, string>("SendSensorReading", GetSensorReading);
 
         }
 
         private void DoSum(object? state)
         {
-            num++;
-            Number = num.ToString() + "%";
+            mConnectionService.SensorControllerHub.InvokeAsync("GetSensorReading", "Oxygen");
         }
+        private void GetSensorReading(string sensor, string value)
+        {
+            Number = value + '%';
+        }
+
 
         public ICommand OpenSensorController { get; }
 
