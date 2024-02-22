@@ -1,0 +1,140 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CosmoWatchControllerApp.AlarmControllerWindow"
+        Title="AlarmControllerWindow"
+		Background="#192734"
+		Width="821"
+		Height="524"
+		WindowStartupLocation="CenterScreen">
+
+
+	<StackPanel>
+		<Panel Margin="19 22">
+			<Image Source="/Assets/cosmowatchlogo.png" Width="158" HorizontalAlignment="Left"/>
+		</Panel>
+
+		<!-- Main Content Grid -->
+		<Grid Margin="0 50" Background="Transparent" RowDefinitions="Auto 17 Auto"
+			  HorizontalAlignment="Center">
+			<!-- Summary and Controllers -->
+			<Grid Grid.Row="0" Background="Transparent" ColumnDefinitions="Auto 17 Auto">
+				<Rectangle Grid.Column="0" Fill="#2B3E4E"
+						   Width="441" Height="291"
+						   RadiusX="10" RadiusY="10"/>
+				<!-- Summary -->
+				<StackPanel Grid.Column="0" Margin="0 0 0 0">
+					<Label Margin="13 11 0 11" FontSize="18"
+						   FontWeight="SemiBold" Foreground="#A1A3B1">
+						Alarm Controller:
+					</Label>
+
+					<!-- Internet Connection -->
+					<StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+						<Button Background="Transparent" Width="60">
+							<Image Source="/Assets/wifi.png" Stretch="None"/>
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							Connected
+						</Label>
+					</StackPanel>
+					<!-- Bell Reading -->
+					<StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+						<Button Background="Transparent" Width="60">
+							<Image Source="/Assets/alarm.png" Stretch="None"/>
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							Detected
+						</Label>
+					</StackPanel>
+					<!-- Siren Reading -->
+					<StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+						<Button Background="Transparent" Width="60">
+							<Image Source="/Assets/siren.png" Stretch="None"/>
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							Detected
+						</Label>
+					</StackPanel>
+					<!-- Alarm Reading -->
+					<StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+						<Button Background="Transparent" Width="60">
+							<Image Source="/Assets/alarm-clock.png" Stretch="None" />
+						</Button>
+						<Label VerticalAlignment="Center" FontSize="16"
+							   FontWeight="Bold" Foreground="#008170">
+							Detected
+						</Label>
+					</StackPanel>
+				</StackPanel>
+
+
+				<StackPanel Grid.Column="0" Margin="270 50 0 0" VerticalAlignment="Top">
+					<Label FontSize="17" FontWeight="SemiBold" Foreground="#A1A3B1"
+						   HorizontalAlignment="Center">
+						Status:
+					</Label>
+					<Label Margin="0 10 0 0" FontSize="17"
+						   FontWeight="Bold" Foreground="#008170"
+						   HorizontalAlignment="Center">
+						Reading...
+					</Label>
+				</StackPanel>
+
+				<!-- Controllers -->
+				<Grid Grid.Column="2" Background="Transparent" RowDefinitions="Auto">
+					<!-- Sensor Controller Settings -->
+					<Rectangle Grid.Row="0" Fill="#2B3E4E"
+							   Width="230" Height="291"
+							   RadiusX="10" RadiusY="10">
+					</Rectangle>
+					<!-- Sensor Controller Settings Label -->
+					<StackPanel Grid.Row="0">
+						<Label Margin="0 11 0 0" FontSize="18"
+							   FontWeight="Bold" Foreground="#A1A3B1"
+							   HorizontalAlignment="Center">
+							Controller Settings:
+						</Label>
+
+					</StackPanel>
+					<!-- Sensor Controller Settings -->
+					<StackPanel Grid.Row="0" Margin="10 50 0 0">
+						<StackPanel Orientation="Horizontal">
+							<Label FontSize="15" FontWeight="SemiBold"
+								   Foreground="#A1A3B1">
+								Read Interval:
+							</Label>
+							<TextBox Margin="42 -5 0 0" FontSize="15"
+								   Foreground="#BEC1D5">
+								5s
+							</TextBox>
+						</StackPanel>
+
+						<Rectangle Width="209" Height=".5"
+								   Fill="#707070" Opacity="0.5"
+								   Margin="-10 8 0 0">
+
+						</Rectangle>
+
+						<StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+							<Label FontSize="15" FontWeight="SemiBold"
+								   Foreground="#A1A3B1">
+								Heartbeat Interval:
+							</Label>
+							<TextBox Margin="5 -5 0 0" FontSize="15"
+								   Foreground="#BEC1D5">
+								6s
+							</TextBox>
+						</StackPanel>
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</Grid>
+	</StackPanel>
+	
+</Window>

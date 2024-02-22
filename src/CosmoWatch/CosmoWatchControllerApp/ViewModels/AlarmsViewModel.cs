@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CosmoWatchControllerApp.ViewModels
 {
-    public class SensorControllerViewModel : ViewModelBase
+    public class AlarmsViewModel : ViewModelBase
     {
     }
 }

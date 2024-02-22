@@ -36,29 +36,36 @@ namespace CosmoWatchControllerApp.ViewModels
 
         // Room Status Value
         private int mStatusVal = 1000;
-        private string? mStatusPercentage = "0%";
+        private string? mStatusPercentage = "N/A";
         public string? StatusPercentage
         {
             get => mStatusPercentage;
             set => this.RaiseAndSetIfChanged(ref mStatusPercentage, value);
         }
+        private string? mStatusLabel;
+        public string? StatusLabel
+        {
+            get => mStatusLabel;
+            private set => this.RaiseAndSetIfChanged(ref mStatusLabel, value);
+        }
+
 
         // Temperature Reading
-        private string? mTemperatureReading = "0";
+        private string? mTemperatureReading = "N/A";
         public string? TemperatureReading
         {
             get => mTemperatureReading;
             private set => this.RaiseAndSetIfChanged(ref mTemperatureReading, value);
         }
         // Oxygen Reading
-        private string? mOxygenReading = "0";
+        private string? mOxygenReading = "N/A";
         public string? OxygenReading
         {
             get => mOxygenReading;
             private set => this.RaiseAndSetIfChanged(ref mOxygenReading, value);
         }
         // Carbon Dioxide Reading
-        private string? mCarbonDioxideReading = "0";
+        private string? mCarbonDioxideReading = "N/A";
         public string? CarbonDioxideReading
         {
             get => mCarbonDioxideReading;
@@ -108,6 +115,7 @@ namespace CosmoWatchControllerApp.ViewModels
         public MainWindowViewModel()
         {
             ShowSensorDialog = new Interaction<SensorControllerViewModel, SensorsViewModel?>();
+            ShowAlarmDialog = new Interaction<AlarmControllerViewModel, AlarmsViewModel?>();
 
             OpenSensorController = ReactiveCommand.Create(async () =>
             {
@@ -116,9 +124,11 @@ namespace CosmoWatchControllerApp.ViewModels
                 var result = await ShowSensorDialog.Handle(controller);
             });
 
-            OpenAlarmController = ReactiveCommand.Create(() =>
+            OpenAlarmController = ReactiveCommand.Create(async () =>
             {
+                var controller = new AlarmControllerViewModel();
 
+                var result = await ShowAlarmDialog.Handle(controller);
             });
 
             mConnectionService = new ServerConnectionService();
@@ -175,7 +185,18 @@ namespace CosmoWatchControllerApp.ViewModels
             }
 
             if (++count >= mSensorNames?.Count)
-                StatusPercentage = Math.Floor((mStatusVal / 1000.0 * 100)).ToString() + '%';
+            {
+                var percentage = Math.Floor(mStatusVal / 1000.0 * 100);
+
+                if (percentage >= 80)
+                    StatusLabel = "Stable";
+                else if (percentage >= 65)
+                    StatusLabel = "Fair";
+                else if (percentage < 65)
+                    StatusLabel = "Critical";
+
+                StatusPercentage = percentage.ToString() + '%';
+            }
         
         }
 
@@ -237,6 +258,7 @@ namespace CosmoWatchControllerApp.ViewModels
         public ICommand OpenAlarmController { get; }
 
         public Interaction<SensorControllerViewModel, SensorsViewModel?> ShowSensorDialog { get; }
+        public Interaction<AlarmControllerViewModel, AlarmsViewModel?> ShowAlarmDialog { get; }
 
     }
 }

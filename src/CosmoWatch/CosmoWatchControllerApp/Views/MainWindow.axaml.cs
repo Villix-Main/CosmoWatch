@@ -14,15 +14,27 @@ namespace CosmoWatchControllerApp.Views
             InitializeComponent();
             CanResize = false;
 
-            this.WhenActivated(action => action(ViewModel!.ShowSensorDialog.RegisterHandler(DoShowDialogAsync)));
+            this.WhenActivated(action =>
+            {
+                action(ViewModel!.ShowSensorDialog.RegisterHandler(DoShowSensorDialogAsync));
+                action(ViewModel!.ShowAlarmDialog.RegisterHandler(DoShowAlarmDialogAsync));
+            });
         }
 
-        private async Task DoShowDialogAsync(InteractionContext<SensorControllerViewModel, SensorsViewModel?> interaction)
+        private async Task DoShowSensorDialogAsync(InteractionContext<SensorControllerViewModel, SensorsViewModel?> interaction)
         {
             var dialog = new SensorControllerWindow();
             dialog.DataContext = interaction.Input;
 
             var result = await dialog.ShowDialog<SensorsViewModel?>(this);
+            interaction.SetOutput(result);
+        }
+        private async Task DoShowAlarmDialogAsync(InteractionContext<AlarmControllerViewModel, AlarmsViewModel?> interaction)
+        {
+            var dialog = new AlarmControllerWindow();
+            dialog.DataContext = interaction.Input;
+
+            var result = await dialog.ShowDialog<AlarmsViewModel?>(this);
             interaction.SetOutput(result);
         }
     }
