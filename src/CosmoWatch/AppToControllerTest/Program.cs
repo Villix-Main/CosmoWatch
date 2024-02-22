@@ -48,10 +48,10 @@ async Task SendSensorReading(string sensor)
             await connection.InvokeAsync("SendSensorReading", "temperature", "87");
             break;
         case "oxygen":
-            await connection.InvokeAsync("SendSensorReading", "oxygen", "54");
+            await connection.InvokeAsync("SendSensorReading", "oxygen", "91");
             break;
         case "carbon_dioxide":
-            await connection.InvokeAsync("SendSensorReading", "carbon_dioxide", "1500");
+            await connection.InvokeAsync("SendSensorReading", "carbon_dioxide", "450");
             break;
 
     }

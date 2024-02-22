@@ -27,7 +27,7 @@
 				<StackPanel Grid.Column="0" Margin="0 0 0 0">
 					<Label Margin="13 11 0 11" FontSize="18"
 						   FontWeight="SemiBold" Foreground="#A1A3B1">
-						Environment Summary:
+						Sensor Controller:
 					</Label>
 
 					<!-- Internet Connection -->
@@ -89,7 +89,7 @@
 				<Grid Grid.Column="2" Background="Transparent" RowDefinitions="Auto">
 					<!-- Sensor Controller Settings -->
 					<Rectangle Grid.Row="0" Fill="#2B3E4E"
-							   Width="219" Height="291"
+							   Width="230" Height="291"
 							   RadiusX="10" RadiusY="10">
 					</Rectangle>
 					<!-- Sensor Controller Settings Label -->
@@ -102,8 +102,34 @@
 
 					</StackPanel>
 					<!-- Sensor Controller Settings -->
-					<StackPanel Grid.Row="0" VerticalAlignment="Center">
-						
+					<StackPanel Grid.Row="0" Margin="10 50 0 0">
+						<StackPanel Orientation="Horizontal">
+							<Label FontSize="15" FontWeight="SemiBold"
+								   Foreground="#A1A3B1">
+								Read Interval:
+							</Label>
+							<TextBox Margin="42 -5 0 0" FontSize="15"
+								   Foreground="#BEC1D5">
+								5s
+							</TextBox>
+						</StackPanel>
+
+						<Rectangle Width="209" Height=".5"
+								   Fill="#707070" Opacity="0.5"
+								   Margin="-10 8 0 0">
+								
+						</Rectangle>
+
+						<StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+							<Label FontSize="15" FontWeight="SemiBold"
+								   Foreground="#A1A3B1">
+								Heartbeat Interval:
+							</Label>
+							<TextBox Margin="5 -5 0 0" FontSize="15"
+								   Foreground="#BEC1D5">
+								6s
+							</TextBox>
+						</StackPanel>
 					</StackPanel>
 				</Grid>
 			</Grid>
