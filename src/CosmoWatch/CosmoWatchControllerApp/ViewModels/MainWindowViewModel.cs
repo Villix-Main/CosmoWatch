@@ -51,7 +51,7 @@ namespace CosmoWatchControllerApp.ViewModels
 
 
         // Temperature Reading
-        private string? mTemperatureReading = "N/A";
+         private string? mTemperatureReading = "N/A";
         public string? TemperatureReading
         {
             get => mTemperatureReading;

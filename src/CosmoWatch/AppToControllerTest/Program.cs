@@ -8,7 +8,8 @@ using System.Text.Unicode;
 string availableSensors = "temperature,oxygen,carbon_dioxide";
 
 HttpClient client = new HttpClient();
-client.BaseAddress = new Uri("https://localhost:7153");
+//client.BaseAddress = new Uri("https://localhost:7153");
+client.BaseAddress = new Uri("https://localhost:44325");
 
 
 using StringContent content = new(
@@ -29,7 +30,7 @@ Console.WriteLine(resultContent);
 
 
 var connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7153" + "/sensorHub")
+                .WithUrl("https://localhost:44325" + "/sensorHub")
                 .WithAutomaticReconnect()
                 .Build();
 

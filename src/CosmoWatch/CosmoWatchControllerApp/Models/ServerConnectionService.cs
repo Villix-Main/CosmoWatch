@@ -11,7 +11,8 @@ namespace CosmoWatchControllerApp.Models
 {
     public class ServerConnectionService
     {
-        private string mConnectionString = "https://localhost:7153";
+        //private string mConnectionString = "https://localhost:7153";
+        private string mConnectionString = "https://localhost:44325";
 
         private HttpClient mClient;
 
